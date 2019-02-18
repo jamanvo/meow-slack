@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from slackbot import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'auth?$', views.auth.as_view(), name='slack_auth')
 ]
